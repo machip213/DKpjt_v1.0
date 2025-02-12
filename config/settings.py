@@ -29,8 +29,12 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-s@qjv$_ee@)@ve
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*.azurewebsites.net', 'localhost', '127.0.0.1']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.azurewebsites.net',
+    'https://msdocs-python-webapp-quickstart-dkp-b9epe3gndzfne7ef.koreacentral-01.azurewebsites.net',  # Azure 도메인
+]
 
 
 
@@ -48,7 +52,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -57,6 +60,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -67,7 +71,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # static file 하나로 모�
 
 ROOT_URLCONF = "config.urls"
 
-CSRF_TRUSTED_ORIGINS= ['https://*']
+
+
 
 TEMPLATES = [
     {

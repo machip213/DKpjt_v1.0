@@ -1,5 +1,5 @@
 from django.db import connection
-
+from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
@@ -11,6 +11,7 @@ def index(request):
 def trains(request):
     return render(request, 'dktrain/index.html')
 
+@csrf_exempt
 def info(request):
     departure = request.POST.get('departure')
     daytype = request.POST.get('dayType')
