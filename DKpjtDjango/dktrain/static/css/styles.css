@@ -1,0 +1,401 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #e6f0ff;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+  background-color: #0056b3;
+  color: #fff;
+  padding: 15px 20px;
+  text-align: center;
+}
+
+/* Main Content Area */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-bottom: 40px;
+}
+
+/* Container */
+.container {
+  width: 400px;
+  max-width: 90%;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 40px;
+  margin: 40px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 출발지 영역 */
+.departure-label {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.departure-label h2 {
+  font-size: 24px;
+  color: #0056b3;
+}
+.departure-label h1 {
+  font-size: 48px;
+  color: #000;
+  cursor: pointer;
+}
+
+/* 출발지 드롭다운 */
+.station-list {
+  display: none;
+  text-align: center;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  margin-top: 5px;
+}
+.station-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.station-list li {
+  padding: 10px 0;
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.station-list li:hover {
+  background-color: #f5f5f5;
+}
+
+/* 평일/휴일 드롭다운 */
+.day-type-container {
+  text-align: center;
+  margin: 0px 0;
+}
+.day-type-container h3 {
+  font-size: 20px;
+  color: #0056b3;
+  margin-bottom: 10px;
+}
+.day-type-selector {
+  font-size: 24px;
+  color: #000;
+  cursor: pointer;
+  padding: 5px 10px;
+  text-align: center;
+}
+.day-type-dropdown {
+  display: none;
+  text-align: center;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  margin-top: 0; /* 여백 최소화 */
+}
+.day-type-dropdown ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.day-type-dropdown li {
+  padding: 10px 0;
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-align: center; /* 가운데 정렬 */
+}
+.day-type-dropdown li:hover {
+  background-color: #f5f5f5;
+}
+
+/* 시간 선택 영역 */
+.time-picker {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.time-picker h3 {
+  font-size: 20px;
+  color: #0056b3;
+  margin-bottom: 0px;
+  margin-top: 20px;
+}
+.time-display {
+  font-size: 36px;
+  color: #000;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+/* 통합 시간 드롭다운 */
+.time-dropdown {
+  display: none;
+  text-align: center;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  margin-top: 0; /* 위 시간 표시와의 여백 제거 */
+}
+.time-dropdown .time-options {
+  display: flex;
+  justify-content: space-around;
+}
+.time-dropdown ul {
+  list-style-type: none;
+  width: 45%;
+}
+.time-dropdown li {
+  padding: 10px 0;
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.time-dropdown li:hover {
+  background-color: #f5f5f5;
+}
+
+/* 운행 방향 영역 */
+.direction-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.direction-container h3 {
+  font-size: 20px;
+  color: #0056b3;
+  margin-bottom: 10px;
+}
+.direction-selector {
+  font-size: 24px;
+  color: #000;
+  cursor: pointer;
+  padding: 5px 10px;
+  text-align: center;
+}
+.direction-dropdown {
+  display: none;
+  text-align: center;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  margin-top: 10px;
+}
+.direction-dropdown ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.direction-dropdown li {
+  padding: 10px 0;
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-align: center;
+}
+.direction-dropdown li:hover {
+  background-color: #f5f5f5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    padding: 10px 15px;
+  }
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+
+
+/* 조회 버튼 컨테이너 */
+.search-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px; /* 버튼과 위 요소 사이의 여백 */
+}
+
+/* 조회 버튼 스타일 */
+#search-button {
+  background: linear-gradient(135deg, #007bff, #0056b3); /* 세련된 그라디언트 효과 */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px; /* 부드러운 테두리 */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 버튼 입체감 */
+}
+
+#search-button:hover {
+  background: linear-gradient(135deg, #0056b3, #003c80);
+  transform: translateY(-2px); /* 버튼이 살짝 올라가는 효과 */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#search-button:active {
+  transform: translateY(1px); /* 클릭 시 버튼이 약간 눌리는 효과 */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+/* 🚆 숨겨진 행 */
+.hidden {
+    display: none !important;
+}
+
+/* 🚆 열차 출발 시간표 스타일 (토스페이먼츠 스타일) */
+.train-table {
+    width: 92%;
+    margin: 40px auto;
+    border-collapse: collapse;
+    font-size: 24px;
+    text-align: center;
+    background-color: white;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* 테이블 헤더 스타일 */
+.train-table thead {
+    background: #007bff;
+    color: white;
+    font-weight: 600;
+    font-size: 26px;
+}
+
+.train-table th {
+    padding: 20px;
+}
+
+/* 테이블 본문 스타일 */
+.train-table td {
+    padding: 22px;
+    font-size: 24px;
+    color: #333;
+    font-weight: 600;
+    background: white;
+}
+
+/* 🚆 카드형 디자인 */
+.train-table tbody tr {
+    display: block;
+    margin: 10px auto;
+    width: 95%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* 행 마우스 오버 효과 */
+.train-table tbody tr:hover {
+    transform: scale(1.02);
+}
+
+/* 🚇 데이터가 없을 때 메시지 스타일 */
+.no-data {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    color: #777;
+    margin-top: 30px;
+}
+
+/* 🔽 더보기 버튼 스타일 */
+.load-more-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 260px;
+    margin: 30px auto;
+    padding: 14px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #007bff;
+    background: white;
+    border: 2px solid #007bff;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.load-more-button:hover {
+    background: #007bff;
+    color: white;
+    transform: scale(1.05);
+}
+
+.load-more-button:active {
+    background: #0056b3;
+    color: white;
+    transform: scale(1);
+}
+
+/* 🔙 돌아가기 버튼 스타일 */
+.back-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 260px;
+    margin: 40px auto;
+    padding: 14px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #555;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.back-button:hover {
+    background: #f1f3f5;
+    transform: scale(1.05);
+}
+
+.back-button:active {
+    background: #e1e3e5;
+    transform: scale(1);
+}
+
+/* 🚀 반응형 (모바일 최적화) */
+@media (max-width: 768px) {
+    .train-table {
+        font-size: 20px;
+    }
+
+    .train-table th {
+        font-size: 22px;
+        padding: 16px;
+    }
+
+    .train-table td {
+        font-size: 20px;
+        padding: 18px;
+    }
+
+    .back-button, .load-more-button {
+        width: 220px;
+        font-size: 20px;
+    }
+}

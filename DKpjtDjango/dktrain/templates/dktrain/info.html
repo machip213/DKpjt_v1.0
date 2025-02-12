@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>열차 시간표</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>{{ daytype }} 대경선 시간표 ({{ direction }})</h1>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>{{ departure }} 출발 - {{ direction }} 열차</h2>
+
+            {% if trains %}
+                <table class="train-table">
+                    <thead>
+                        <tr>
+                            <th>출발 시간</th>
+                        </tr>
+                    </thead>
+                    <tbody id="train-tbody">
+                        {% for train in trains %}
+                        <tr class="train-row {% if forloop.counter > 4 %}hidden{% endif %}">
+                            <td>{{ train.0 }}</td> <!-- 출발 시간 -->
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <button id="load-more" class="load-more-button">더보기 ▼</button>
+            {% else %}
+                <p class="no-data">조회된 열차 정보가 없습니다.</p>
+            {% endif %}
+
+            <a href="{% url 'dkpjt:trains' %}" class="back-button">🔙 돌아가기</a>
+        </div>
+    </main>
+
+    <!-- JavaScript 파일 연결 -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

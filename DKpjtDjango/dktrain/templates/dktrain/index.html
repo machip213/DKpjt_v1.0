@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 구글 폰트 -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <!-- CSS 연결 -->
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  <title>Korail Departure Selection</title>
+</head>
+<body>
+  <header>
+    <h1>대경선 시간표</h1>
+  </header>
+  <main>
+    <div class="container">
+      <!-- 출발지 영역 -->
+      <div class="departure-label">
+        <h2>출발지</h2>
+        <!-- 기본 표시 텍스트 (클릭 시 드롭다운 토글) -->
+        <h1 id="main-departure">경산</h1>
+      </div>
+      <!-- 출발지 드롭다운 -->
+      <div class="station-list" id="station-list">
+        <ul>
+          <li data-departure="경산">경산</li>
+          <li data-departure="가천">가천</li>
+          <li data-departure="고모">고모</li>
+          <li data-departure="동대구">동대구</li>
+          <li data-departure="대구">대구</li>
+          <li data-departure="서대구">서대구</li>
+          <li data-departure="지천">지천</li>
+          <li data-departure="신동">신동</li>
+          <li data-departure="연화">연화</li>
+          <li data-departure="왜관">왜관</li>
+          <li data-departure="약목">약목</li>
+          <li data-departure="사곡">사곡</li>
+          <li data-departure="구미">구미</li>
+        </ul>
+      </div>
+
+      <!-- 평일/휴일 드롭다운 -->
+      <div class="day-type-container">
+        <h3>평일 / 휴일</h3>
+        <!-- 클릭 시 드롭다운 토글 -->
+        <div class="day-type-selector" id="day-type-selector">
+          <span id="selected-day-type">평일</span>
+        </div>
+      </div>
+      <div class="day-type-dropdown" id="day-type-dropdown">
+        <ul>
+          <li data-day="weekday">평일</li>
+          <li data-day="holiday">휴일</li>
+        </ul>
+      </div>
+
+      <!-- 시간 선택 영역 -->
+      <div class="time-picker">
+        <h3>시간 선택</h3>
+        <!-- 클릭 시 시/분 통합 드롭다운 토글 -->
+        <div class="time-display" id="time-display">
+          <span id="selected-hour">00</span> : <span id="selected-minute">00</span>
+        </div>
+      </div>
+      <!-- 통합 시간 드롭다운 (좌측: 시 / 우측: 분) -->
+      <div class="time-dropdown" id="time-dropdown">
+        <div class="time-options">
+          <ul id="hour-list"></ul>
+          <ul id="minute-list"></ul>
+        </div>
+      </div>
+
+      <!-- 운행 방향 선택 영역 -->
+      <div class="direction-container">
+        <h3>운행 방향</h3>
+        <!-- 클릭 시 드롭다운 토글 -->
+        <div class="direction-selector" id="direction-selector">
+          <span id="selected-direction">상행</span>
+        </div>
+      </div>
+      <!-- 운행 방향 드롭다운 -->
+      <div class="direction-dropdown" id="direction-dropdown">
+        <ul id="direction-list">
+          <li data-direction="up">상행</li>
+          <li data-direction="down">하행</li>
+        </ul>
+      </div>
+
+
+      <!-- 폼을 사용한 조회 버튼 -->
+      <form action="{% url 'dkpjt:info' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="departure" id="departure-input">
+        <input type="hidden" name="dayType" id="dayType-input">
+        <input type="hidden" name="time" id="time-input">
+        <input type="hidden" name="direction" id="direction-input">
+
+        <div class="search-button-container">
+          <button id="search-button">조회</button>
+        </div>
+       </form>
+    </div>
+  </main>
+
+
+
+  <!-- JavaScript 연결 -->
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
