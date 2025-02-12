@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-s@qjv$_ee@)@ve
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['*.azurewebsites.net', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 
@@ -67,7 +67,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # static file 하나로 모�
 
 ROOT_URLCONF = "config.urls"
 
-CSRF_TRUSTED_ORIGINS= ['https://*.azurewebsites.net']
+CSRF_TRUSTED_ORIGINS= ['https://*']
 
 TEMPLATES = [
     {
@@ -140,7 +140,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = "static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
