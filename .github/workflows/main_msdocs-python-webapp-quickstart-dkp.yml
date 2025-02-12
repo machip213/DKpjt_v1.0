@@ -31,9 +31,10 @@ jobs:
       
       - name: Install dependencies
         run: |
-          cd $GITHUB_WORKSPACE
-          ls -l
-          pip install --no-cache-dir -r requirements.txt
+          cd $GITHUB_WORKSPACE  # GitHub workspace 디렉토리로 이동
+          ls -l  # `requirements.txt`가 있는지 확인
+          pip install --no-cache-dir -r $GITHUB_WORKSPACE/requirements.txt
+
 
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
