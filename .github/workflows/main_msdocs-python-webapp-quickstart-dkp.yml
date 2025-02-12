@@ -30,7 +30,11 @@ jobs:
           source venv/bin/activate
       
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          cd $GITHUB_WORKSPACE
+          ls -l
+          pip install --no-cache-dir -r requirements.txt
+
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
