@@ -26,16 +26,16 @@ import os
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-s@qjv$_ee@)@veeh45fsr(wry01xzz9@54$f8rd$fmllajj=$%')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
-ALLOWED_HOSTS = ['*.azurewebsites.net', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://*.azurewebsites.net',
-    'https://msdocs-python-webapp-quickstart-dkp-b9epe3gndzfne7ef.koreacentral-01.azurewebsites.net',  # Azure 도메인
+    'https://*'
 ]
 
+CSRF_COOKIE_DOMAIN = ".azurewebsites.net"
 
 
 # Application definition
