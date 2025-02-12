@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-s@qjv$_ee@)@ve
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['https://*.azurewebsites.net', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*.azurewebsites.net', 'localhost', '127.0.0.1']
 
 
 
