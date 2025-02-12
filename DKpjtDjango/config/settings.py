@@ -29,7 +29,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-s@qjv$_ee@)@ve
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['https://*.azurewebsites.net', 'localhost']
+ALLOWED_HOSTS = ['https://*.azurewebsites.net', 'localhost', '127.0.0.1']
+
 
 
 
@@ -93,11 +94,14 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # MySQL을 사용할 경우
-        'NAME': 'dktime',       # 데이터베이스 이름 (MySQL Workbench에서 확인한 DB 이름)
-        'USER': 'kmw1638',    # MySQL 사용자 이름
-        'PASSWORD': 'Chip0718!',# MySQL 사용자 비밀번호
-        'HOST': '127.0.0.1',        # 보통 로컬호스트
-        'PORT': '3306',
+        'NAME': os.getenv("DATABASE_NAME"),       # 데이터베이스 이름 (MySQL Workbench에서 확인한 DB 이름)
+        'USER': os.getenv("DATABASE_USER"),    # MySQL 사용자 이름
+        'PASSWORD': os.getenv("DATABASE_PASSWORD"),# MySQL 사용자 비밀번호
+        'HOST': os.getenv("DATABASE_HOST"),        # 보통 로컬호스트
+        'PORT': os.getenv("DATABASE_PORT"),
+        "OPTIONS": {
+            "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
 
