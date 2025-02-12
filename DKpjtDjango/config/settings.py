@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-s@qjv$_ee@)@ve
 DEBUG = False
 
 
-ALLOWED_HOSTS = [True]
+ALLOWED_HOSTS = ['https://*.azurewebsites.net', 'localhost']
 
 
 
@@ -61,7 +61,7 @@ MIDDLEWARE = [
 CORS_ORIGIN_ALLOW_ALL = True
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
+STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # static file 하나로 모으기
 
 ROOT_URLCONF = "config.urls"
