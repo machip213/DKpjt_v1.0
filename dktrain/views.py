@@ -4,13 +4,14 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 import datetime
-from django.http import JsonResponse
+import pytz
 
 def index(request):
     return HttpResponse("Hello, World. You're at the polls index.")
 
 def trains(request):
-    now = datetime.datetime.now()
+    kst = pytz.timezone('Asia/Seoul')
+    now = datetime.datetime.now(kst)
     minute_floored = (now.minute // 10) * 10
     minute = f'{minute_floored:02d}'
     hour = now.hour
