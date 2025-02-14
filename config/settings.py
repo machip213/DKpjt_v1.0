@@ -26,7 +26,7 @@ import os
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-s@qjv$_ee@)@veeh45fsr(wry01xzz9@54$f8rd$fmllajj=$%')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['*']
@@ -96,6 +96,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+#DB 배포용
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # MySQL을 사용할 경우
@@ -109,6 +110,7 @@ DATABASES = {
         },
     }
 }
+
 
 
 # Password validation

@@ -29,16 +29,16 @@
       <div class="station-list" id="station-list">
         <ul>
           <li data-departure="경산">경산</li>
-          <li data-departure="가천">가천</li>
-          <li data-departure="고모">고모</li>
+<!--          <li data-departure="가천">가천</li>
+          <li data-departure="고모">고모</li>-->
           <li data-departure="동대구">동대구</li>
           <li data-departure="대구">대구</li>
           <li data-departure="서대구">서대구</li>
-          <li data-departure="지천">지천</li>
+<!--          <li data-departure="지천">지천</li>
           <li data-departure="신동">신동</li>
-          <li data-departure="연화">연화</li>
+          <li data-departure="연화">연화</li>-->
           <li data-departure="왜관">왜관</li>
-          <li data-departure="약목">약목</li>
+<!--          <li data-departure="약목">약목</li>-->
           <li data-departure="사곡">사곡</li>
           <li data-departure="구미">구미</li>
         </ul>
@@ -64,7 +64,7 @@
         <h3>시간 선택</h3>
         <!-- 클릭 시 시/분 통합 드롭다운 토글 -->
         <div class="time-display" id="time-display">
-          <span id="selected-hour">00</span> : <span id="selected-minute">00</span>
+          <span id="selected-hour">{{hour}}</span> : <span id="selected-minute">{{minute}}</span>
         </div>
       </div>
       <!-- 통합 시간 드롭다운 (좌측: 시 / 우측: 분) -->

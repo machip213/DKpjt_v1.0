@@ -18,11 +18,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const directionDropdown = document.getElementById('direction-dropdown');
   const selectedDirection = document.getElementById('selected-direction');
   
+
   // 현재값 전송용 변수
   const departureInput = document.getElementById('departure-input');
     const dayTypeInput = document.getElementById('dayType-input');
   const timeInput = document.getElementById('time-input');
   const directionInput = document.getElementById('direction-input');
+
+
 
   // 폼 제출 전 데이터 설정
     document.getElementById('search-button').addEventListener('click', function () {

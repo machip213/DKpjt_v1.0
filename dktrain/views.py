@@ -3,13 +3,19 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-
+import datetime
+from django.http import JsonResponse
 
 def index(request):
     return HttpResponse("Hello, World. You're at the polls index.")
 
 def trains(request):
-    return render(request, 'dktrain/index.html')
+    now = datetime.datetime.now()
+    minute_floored = (now.minute // 10) * 10
+    minute = f'{minute_floored:02d}'
+    hour = now.hour
+
+    return render(request, 'dktrain/index.html', {'hour' : hour, 'minute' : minute})
 
 @csrf_exempt
 def info(request):
