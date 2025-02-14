@@ -10,7 +10,7 @@ def index(request):
     return HttpResponse("Hello, World. You're at the polls index.")
 
 def trains(request):
-    kst = pytz.timezone('Asia/Seoul')
+    kst = pytz.timezone('Asia/Seoul') # 한국시간
     now = datetime.datetime.now(kst)
     minute_floored = (now.minute // 10) * 10
     minute = f'{minute_floored:02d}'
