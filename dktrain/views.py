@@ -14,7 +14,7 @@ def trains(request):
     now = datetime.datetime.now(kst)
     minute_floored = (now.minute // 10) * 10
     minute = f'{minute_floored:02d}'
-    hour = now.hour
+    hour = f'{now.hour:02d}'
 
     return render(request, 'dktrain/index.html', {'hour' : hour, 'minute' : minute})
 
